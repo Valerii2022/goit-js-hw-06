@@ -15,22 +15,11 @@ const images = [
 
 
 
-const itemArrayEl = [];
-
-images.forEach(image => {
-  const itemEl = document.createElement('li');
-  itemEl.classList.add("item");
-  const imageEl = document.createElement('img');
-  imageEl.classList.add("img");
-  imageEl.src = image.url;
-  imageEl.alt = image.alt;
-  imageEl.width = 300;
-  itemEl.append(imageEl); 
-  itemArrayEl.push(itemEl);
-});
+const listEl = document.querySelector('.gallery');
 
 
+const markup = images.map(image => 
+  `<li class = "item"><img src = "${image.url}" alt = "${image.alt}" width = 300 ><li> `
+).join('');
 
-const ulEl = document.querySelector('.gallery');
-
-ulEl.append(...itemArrayEl);
+listEl.insertAdjacentHTML("afterbegin", markup);
