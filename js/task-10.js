@@ -5,11 +5,6 @@ const refs = {
   controlsRef: document.querySelector("#controls"),
 }
 
-// const createBtnRef = document.querySelector("[data-create]");
-// const destroyBtnref = document.querySelector("[data-destroy]");
-// const boxesRef = document.querySelector("#boxes");
-// const controlsRef = document.querySelector("#controls");
-
 refs.createBtnRef.addEventListener("click", createBoxes);
 refs.destroyBtnref.addEventListener("click", onBtnResetClick);
 

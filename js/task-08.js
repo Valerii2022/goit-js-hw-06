@@ -9,7 +9,7 @@ function onFormSubmit(event) {
     event.currentTarget.elements.password.value === "" ||
     event.currentTarget.elements.email.value === ""
   ) {
-    alert("all fields must be filled");
+    alert("Всі поля мають бути заповнені!!!");
   } else {
     const {
       elements: {
