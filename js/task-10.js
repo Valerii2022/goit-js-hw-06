@@ -1,13 +1,20 @@
-const createBtnRef = document.querySelector("[data-create]");
-const destroyBtnref = document.querySelector("[data-destroy]");
-const boxesRef = document.querySelector("#boxes");
-const controlsRef = document.querySelector("#controls");
+const refs = {
+  createBtnRef: document.querySelector("[data-create]"),
+  destroyBtnref: document.querySelector("[data-destroy]"),
+  boxesRef: document.querySelector("#boxes"),
+  controlsRef: document.querySelector("#controls"),
+}
 
-createBtnRef.addEventListener("click", getRandomHexColor);
-destroyBtnref.addEventListener("click", onBtnResetClick);
+// const createBtnRef = document.querySelector("[data-create]");
+// const destroyBtnref = document.querySelector("[data-destroy]");
+// const boxesRef = document.querySelector("#boxes");
+// const controlsRef = document.querySelector("#controls");
+
+refs.createBtnRef.addEventListener("click", createBoxes);
+refs.destroyBtnref.addEventListener("click", onBtnResetClick);
 
 function createBoxes(amount) {
-  amount = controlsRef.firstElementChild.value;
+  amount = refs.controlsRef.firstElementChild.value;
   const newElement = [];
   for (let i = 0; i < amount; i += 1) {
     let newEl = document.createElement("div");
@@ -19,14 +26,10 @@ function createBoxes(amount) {
     newEl.style.margin = "5px";
     newElement.push(newEl);
   }
-  boxesRef.append(...newElement);
-  console.log(boxesRef);
-}
-
-function getRandomHexColor() {
-  createBoxes();
+  refs.boxesRef.append(...newElement);
 }
 
 function onBtnResetClick() {
-  console.dir(boxesRef.children);
+  refs.boxesRef.replaceChildren();
+  refs.controlsRef.firstElementChild.value = '';
 }

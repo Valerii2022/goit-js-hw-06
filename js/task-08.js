@@ -18,12 +18,11 @@ function onFormSubmit(event) {
       },
     } = event.currentTarget;
 
-    const objValue = {
+    console.table ({
       [name]: [value],
       [password.name]: [password.value],
-    };
+    });
 
-    console.table(objValue);
-    formRef.reset();
+    event.currentTarget.reset();
   }
 }
