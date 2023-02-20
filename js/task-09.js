@@ -5,7 +5,9 @@ buttonRef.addEventListener('click', getRandomHexColor);
 
 
 function getRandomHexColor() {
-  return document.body.style.backgroundColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  const backgroundColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
+  document.body.style.backgroundColor = backgroundColor;
+  textRef.textContent = backgroundColor;
 }
 
 
