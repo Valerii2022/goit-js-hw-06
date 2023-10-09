@@ -5,24 +5,16 @@ formRef.addEventListener("submit", onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
 
-  if (
-    event.currentTarget.elements.password.value === "" ||
-    event.currentTarget.elements.email.value === ""
-  ) {
+  const { password, email } = event.currentTarget.elements;
+
+  if (password.value === "" || email.value === "") {
     alert("Всі поля мають бути заповнені!!!");
   } else {
-    const {
-      elements: {
-        email: { name, value },
-        password,
-      },
-    } = event.currentTarget;
-
-    console.table ({
-      [name]: [value],
-      [password.name]: [password.value],
+    console.table({
+      email: email.value,
+      password: password.value,
     });
 
-    event.currentTarget.reset();
+    formRef.reset();
   }
 }
